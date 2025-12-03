@@ -20,7 +20,7 @@ public class Day1Part1 {
     }
 
     public static void main(String[] args) {
-        String fileName = "Day1TestValues.txt";
+        String fileName = "Day1InputWhereMyRiceGo";
         try {
             Path filePath = Paths.get(fileName);
             List<String> linesList = Files.readAllLines(filePath);
@@ -29,16 +29,16 @@ public class Day1Part1 {
             int calculatedVal;
             int numberOfZeros = 0;
 
-            for (String line: linesArray){
+            for (String line : linesArray) {
                 String leftOrRight = String.valueOf(line.charAt(0));
                 int valueToAddOrSubtract = Integer.parseInt(line.substring(1));
                 int digits = countDigits(valueToAddOrSubtract);
                 if (digits > 2) {
                     valueToAddOrSubtract = getLastTwoDigits(valueToAddOrSubtract);
                 }
-                if (leftOrRight.equals("L")){
+                if (leftOrRight.equals("L")) {
                     calculatedVal = startingVal - valueToAddOrSubtract;
-                    if (calculatedVal < 0){
+                    if (calculatedVal < 0) {
                         startingVal = 100 - Math.abs(calculatedVal);
                         numberOfZeros++;
                     } else {
@@ -46,7 +46,7 @@ public class Day1Part1 {
                     }
                 } else {
                     calculatedVal = startingVal + valueToAddOrSubtract;
-                    if (calculatedVal > 99){
+                    if (calculatedVal > 99) {
                         valueToAddOrSubtract = calculatedVal - 100;
                         startingVal = Math.abs(valueToAddOrSubtract);
                         numberOfZeros++;
@@ -54,22 +54,23 @@ public class Day1Part1 {
                         startingVal = calculatedVal;
                     }
                 }
-                if (startingVal > 100){
+                if (startingVal > 100) {
                     System.out.println("valueToAddOrSubtract was: " + valueToAddOrSubtract);
                     System.out.println("line was " + line);
-                    throw new Exception("startVal is 100 or greater: " + startingVal + " calculatedVal = " + calculatedVal);
+                    throw new Exception(
+                            "startVal is 100 or greater: " + startingVal + " calculatedVal = " + calculatedVal);
                 }
-                if (startingVal < 0){
+                if (startingVal < 0) {
                     System.out.println("line was: " + line);
                     System.out.println("valueToAddOrSubtract was: " + valueToAddOrSubtract);
                     throw new Exception("startVal is negative: " + startingVal + " calculatedVal = " + calculatedVal);
                 }
 
-                if (startingVal == 100){
+                if (startingVal == 100) {
                     startingVal = 0;
                 }
-                System.out.println("New startingVal = " + startingVal);
-                if (startingVal == 0){
+                // System.out.println("New startingVal = " + startingVal);
+                if (startingVal == 0) {
                     numberOfZeros++;
                 }
             }
