@@ -3,6 +3,22 @@ import java.util.List;
 
 public class Day2Part1 {
 
+    // Parse input ranges:
+    // Split the comma-separated string into individual ranges (e.g., "11-22",
+    // "95-115")
+    // Iterate through each range: For each range, check every number from min to
+    // max
+    // For each number:
+    // Convert the number to a string to work with its digits
+    // Calculate the number of digits
+    // Find all divisors of the digit
+    // Check each divisor:
+    // Use the divisor as the chunk size to split the number's digits
+    // Check if all chunks are identical using stream matching
+    // Collect matches: If any divisor creates matching chunks, add the number to
+    // the results list and move to the next number
+    // Calculate sum: Sum all numbers that had matching chunks
+
     public static void main(String[] args) {
         // String stringID =
         // "11-22,95-115,998-1012,1188511880-1188511890,222220-222224," +
