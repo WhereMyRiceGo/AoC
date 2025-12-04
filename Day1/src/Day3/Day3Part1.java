@@ -11,6 +11,8 @@ import java.util.stream.Collectors;
 public class Day3Part1 {
 
     public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
+
         String fileContents = readInputFromFile("Day3Part1Input");
         // String fileContents = readInputFromFile("./Day3Part1InputExample");
         List<String> stringList = fileContents.lines().toList();
@@ -26,6 +28,9 @@ public class Day3Part1 {
         int sumCollector = results.stream()
                 .collect(Collectors.summingInt(Integer::intValue));
         System.out.println("Sum of all results: " + sumCollector);
+
+        long endTime = System.currentTimeMillis();
+        System.out.println("Execution time: " + (endTime - startTime) + " ms");
 
     }
 
